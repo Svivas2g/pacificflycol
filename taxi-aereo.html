@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taxi aéreo | PacificFly</title>
+<meta name="description" content="Vuelos privados en taxi aéreo a la medida de tu agenda. Cuéntanos la ruta, la fecha y cuántos viajan, y te proponemos la aeronave y el itinerario.">
+<meta name="theme-color" content="#0F4289">
+<!-- SITIO, versión 7 (5 de octubre de 2026). Generado con _fuente/generar.py: no editar este archivo, editar _fuente/. -->
+<link rel="stylesheet" href="assets/estilos.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<script src="assets/iconos.js"></script>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<div class="barra-urgencia" role="region" aria-label="Línea de ambulancias aéreas">
+  <div class="contenedor barra-urgencia__in">
+    <p><span class="largo">Nuestra línea para ambulancias aéreas está disponible las 24 horas del día: </span><span class="corto">Ambulancias aéreas 24 h: </span><a href="tel:+573125841420">+57 312 584 1420</a></p>
+  </div>
+</div>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__in">
+    <a class="logo" href="index.html" aria-label="PacificFly, inicio"><img src="assets/logo-pacificfly.png" alt="PacificFly" width="900" height="197"></a>
+    <nav class="nav" aria-label="Principal">
+      <div class="nav__grupo">
+        <button class="nav__servicios nav__servicios--activo" type="button" aria-expanded="false" aria-controls="menu-servicios">Servicios<svg class="icono"><use href="#i-abajo"/></svg></button>
+        <ul class="nav__desplegable" id="menu-servicios" hidden>
+          <li><a href="index.html">Ambulancia aérea</a></li>
+          <li><a href="taxi-aereo.html" aria-current="page">Taxi aéreo</a></li>
+          <li><a href="mercancias-peligrosas.html">Mercancías peligrosas</a></li>
+          <li><a href="vuelos-de-carga.html">Vuelos de carga</a></li>
+          <li><a href="vuelos-internacionales.html">Vuelos internacionales</a></li>
+        </ul>
+      </div>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><svg class="icono"><use href="#i-menu"/></svg></button>
+  </div>
+  <div id="menu-movil" class="menu-movil" hidden>
+    <nav class="contenedor" aria-label="Menú">
+      <p class="menu-movil__titulo">Servicios</p>
+      <a href="index.html">Ambulancia aérea</a>
+      <a href="taxi-aereo.html" aria-current="page">Taxi aéreo</a>
+      <a href="mercancias-peligrosas.html">Mercancías peligrosas</a>
+      <a href="vuelos-de-carga.html">Vuelos de carga</a>
+      <a href="vuelos-internacionales.html">Vuelos internacionales</a>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="hero hero--servicio oscuro" id="inicio" aria-labelledby="titulo-taxi">
+    <div class="hero__fondo" aria-hidden="true"></div>
+    <img class="hero__avion" src="assets/king-air-c90.webp" alt="" aria-hidden="true" width="1300" height="391">
+    <div class="contenedor">
+      <div class="hero__texto">
+        <p class="chip-vivo">Taxi aéreo</p>
+        <h1 id="titulo-taxi">Vuelos privados<br class="solo-escritorio"> a la medida de tu agenda.</h1>
+        <p class="hero__lead">Cuéntanos la ruta, la fecha y cuántos viajan, y te proponemos la aeronave y el itinerario, sin depender de los horarios comerciales.</p>
+        <div class="hero__acciones">
+          <a class="btn btn--llamar btn--xl" href="tel:+573114099465">
+            <span class="timbre"><svg class="icono"><use href="#i-tel"/></svg></span>
+            <span class="btn__txt"><span>Llamar a la línea comercial</span><small>+57 311 409 9465</small></span>
+          </a>
+          <a class="btn btn--wa btn--xl" href="https://wa.me/573114099465?text=Hola%2C%20quiero%20cotizar%20un%20vuelo%20en%20taxi%20a%C3%A9reo." target="_blank" rel="noopener"><svg class="icono"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
+        </div>
+        <ul class="hero__garantias">
+          <li><span class="check-circulo"><svg class="icono"><use href="#i-check"/></svg></span>Aviones bimotores</li>
+          <li><span class="check-circulo"><svg class="icono"><use href="#i-check"/></svg></span>Atención personalizada</li>
+          <li><span class="check-circulo"><svg class="icono"><use href="#i-check"/></svg></span>Cobertura nacional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué se necesita para cotizar -->
+  <section class="seccion cobertura" aria-labelledby="req-titulo">
+    <div class="contenedor requisitos">
+      <div class="revelar">
+        <p class="ceja">Para cotizar</p>
+        <h2 id="req-titulo">Con estos datos te respondemos más rápido</h2>
+        <p class="intro">El valor del vuelo depende de la ruta, la aeronave y la fecha. Con esta información te enviamos la propuesta completa.</p>
+      </div>
+      <div class="tener revelar">
+        <h3>Ten a la mano</h3>
+        <ul class="checklist checklist--2">
+          <li><svg class="icono"><use href="#i-check"/></svg>Ciudad de origen y de destino</li>
+          <li><svg class="icono"><use href="#i-check"/></svg>Fecha y hora aproximada</li>
+          <li><svg class="icono"><use href="#i-check"/></svg>Número de pasajeros y equipaje</li>
+          <li><svg class="icono"><use href="#i-check"/></svg>Si es solo ida o ida y regreso</li>
+        </ul>
+        <p class="tener__nota">¿Aún no tienes todos los detalles? Escríbenos igual y armamos el vuelo contigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo reservar -->
+  <section class="seccion" aria-labelledby="proceso-titulo">
+    <div class="contenedor">
+      <div class="revelar">
+        <p class="ceja">Cómo reservar</p>
+        <h2 id="proceso-titulo">Tu vuelo, en cuatro pasos</h2>
+      </div>
+      <div class="pasos revelar">
+        <div class="pasos__ruta" aria-hidden="true"><svg class="pasos__avion"><use href="#i-avion"/></svg></div>
+        <div class="pasos__progreso" aria-hidden="true"></div>
+        <ol class="pasos__lista">
+          <li class="paso"><span class="paso__icono"><svg class="icono"><use href="#i-tel"/></svg></span><span class="paso__num">PASO 1</span><h3>Nos cuentas tu ruta</h3><p>Origen, destino, fecha y cuántas personas viajan.</p></li>
+          <li class="paso"><span class="paso__icono"><svg class="icono"><use href="#i-ruta"/></svg></span><span class="paso__num">PASO 2</span><h3>Te proponemos el vuelo</h3><p>La aeronave, el itinerario y el valor, con todos los detalles operativos.</p></li>
+          <li class="paso"><span class="paso__icono"><svg class="icono"><use href="#i-check-circulo"/></svg></span><span class="paso__num">PASO 3</span><h3>Confirmas</h3><p>Coordinamos la tripulación y te indicamos dónde y a qué hora presentarte.</p></li>
+          <li class="paso"><span class="paso__icono"><svg class="icono"><use href="#i-avion"/></svg></span><span class="paso__num">PASO 4</span><h3>Despegas</h3><p>Nuestro equipo te acompaña de principio a fin.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flota -->
+  <section class="seccion flota" id="flota" aria-labelledby="flota-titulo">
+    <div class="contenedor flota__in">
+      <div class="revelar">
+        <p class="ceja">Nuestra flota</p>
+        <h2 id="flota-titulo">Elige la aeronave para tu viaje</h2>
+        <p class="intro">Aviones bimotores para trayectos regionales y nacionales. Te recomendamos el que mejor se ajuste a la ruta, los pasajeros y el equipaje.</p>
+        <div class="flota__lista" role="tablist" aria-label="Aeronaves de la flota">
+          <button class="flota__tab" type="button" role="tab" id="tab-c90" aria-selected="true" aria-controls="flota-panel" data-imagen="assets/king-air-c90.webp" data-alt="Beechcraft King Air C90 de PacificFly en plataforma" data-marca="C90" data-nombre="Beechcraft King Air C90"><span class="icono-caja"><svg class="icono"><use href="#i-avion"/></svg></span><span><strong>Beechcraft King Air C90</strong><small>Turbohélice bimotor, cabina presurizada</small></span></button>
+          <button class="flota__tab" type="button" role="tab" id="tab-seneca4" aria-selected="false" tabindex="-1" aria-controls="flota-panel" data-imagen="assets/seneca-iv.webp" data-alt="Piper PA-34 Seneca IV de PacificFly en plataforma" data-marca="IV" data-nombre="Piper PA-34 Seneca IV"><span class="icono-caja"><svg class="icono"><use href="#i-avion"/></svg></span><span><strong>Piper PA-34 Seneca IV</strong><small>Bimotor de pistón, trayectos regionales</small></span></button>
+          <button class="flota__tab" type="button" role="tab" id="tab-seneca2" aria-selected="false" tabindex="-1" aria-controls="flota-panel" data-imagen="assets/seneca-ii.jpg" data-estudio="si" data-alt="Piper PA-34 Seneca II de PacificFly, matrícula HK-5011" data-marca="II" data-nombre="Piper PA-34 Seneca II"><span class="icono-caja"><svg class="icono"><use href="#i-avion"/></svg></span><span><strong>Piper PA-34 Seneca II</strong><small>Bimotor de pistón, trayectos regionales</small></span></button>
+        </div>
+      </div>
+      <figure class="flota__img revelar" id="flota-panel" role="tabpanel" aria-labelledby="tab-c90" data-marca="C90">
+        <img class="flota__foto" id="flota-foto" src="assets/king-air-c90.webp" alt="Beechcraft King Air C90 de PacificFly en plataforma" loading="lazy" width="1300" height="391">
+        <div class="flota__pendiente" id="flota-pendiente" hidden><svg class="icono"><use href="#i-avion"/></svg><p>Foto pendiente<strong id="flota-pendiente-nombre"></strong></p></div>
+        <figcaption id="flota-pie">Beechcraft King Air C90</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Preguntas frecuentes -->
+  <section class="seccion" id="preguntas" aria-labelledby="faq-titulo" style="padding-top:40px">
+    <div class="contenedor faq__in">
+      <div class="faq__intro revelar">
+        <p class="ceja">Preguntas frecuentes</p>
+        <h2 id="faq-titulo">Lo que debes saber antes de volar</h2>
+      </div>
+      <div class="acordeon revelar">
+        <div class="acordeon__item"><h3><button class="acordeon__btn" type="button" aria-expanded="true" aria-controls="r1" id="p1"><span class="acordeon__num">01</span><span class="acordeon__txt">¿Cómo reservo un vuelo?</span><span class="acordeon__flecha"><svg class="icono"><use href="#i-abajo"/></svg></span></button></h3>
+          <div class="acordeon__panel" id="r1" role="region" aria-labelledby="p1"><p>Llámanos o escríbenos por WhatsApp con la ruta, la fecha y el número de pasajeros. Con eso te proponemos la aeronave, el itinerario y el valor del vuelo.</p></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__btn" type="button" aria-expanded="false" aria-controls="r2" id="p2"><span class="acordeon__num">02</span><span class="acordeon__txt">¿Con cuánta anticipación debo reservar?</span><span class="acordeon__flecha"><svg class="icono"><use href="#i-abajo"/></svg></span></button></h3>
+          <div class="acordeon__panel" id="r2" role="region" aria-labelledby="p2" hidden><p>Mientras antes reserves, más opciones de horario y de aeronave tendrás. Si necesitas volar hoy o mañana, llámanos y revisamos la disponibilidad.</p></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__btn" type="button" aria-expanded="false" aria-controls="r3" id="p3"><span class="acordeon__num">03</span><span class="acordeon__txt">¿Qué aeronaves puedo elegir?</span><span class="acordeon__flecha"><svg class="icono"><use href="#i-abajo"/></svg></span></button></h3>
+          <div class="acordeon__panel" id="r3" role="region" aria-labelledby="p3" hidden><p>Bimotores como el Beechcraft King Air C90 y los Piper PA-34 Seneca. Te recomendamos el que mejor se ajuste a la ruta, los pasajeros y el equipaje.</p></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__btn" type="button" aria-expanded="false" aria-controls="r4" id="p4"><span class="acordeon__num">04</span><span class="acordeon__txt">¿Es seguro volar con PacificFly?</span><span class="acordeon__flecha"><svg class="icono"><use href="#i-abajo"/></svg></span></button></h3>
+          <div class="acordeon__panel" id="r4" role="region" aria-labelledby="p4" hidden><p>Operamos con aeronaves bimotores, con el mantenimiento al día y tripulaciones entrenadas. Antes de cada vuelo revisamos la ruta, el clima y la pista de destino.</p></div></div>
+        <div class="acordeon__item"><h3><button class="acordeon__btn" type="button" aria-expanded="false" aria-controls="r5" id="p5"><span class="acordeon__num">05</span><span class="acordeon__txt">¿Desde dónde operan?</span><span class="acordeon__flecha"><svg class="icono"><use href="#i-abajo"/></svg></span></button></h3>
+          <div class="acordeon__panel" id="r5" role="region" aria-labelledby="p5" hidden><p>Nuestra base principal está en el hangar 39 del Aeropuerto Internacional Alfonso Bonilla Aragón, que sirve a Cali, y volamos a toda Colombia.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-titulo">
+    <div class="contenedor revelar">
+      <h2 id="final-titulo">¿Listo para volar?</h2>
+      <p>Cuéntanos tu ruta y te enviamos la propuesta.</p>
+      <div class="final__acciones">
+        <a class="btn btn--llamar btn--xl" href="tel:+573114099465"><span class="timbre"><svg class="icono"><use href="#i-tel"/></svg></span><span class="btn__txt"><span>Llamar a la línea comercial</span><small>+57 311 409 9465</small></span></a>
+        <a class="btn btn--wa-claro btn--xl" href="https://wa.me/573114099465?text=Hola%2C%20quiero%20cotizar%20un%20vuelo%20en%20taxi%20a%C3%A9reo." target="_blank" rel="noopener"><svg class="icono"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
+      </div>
+      <p class="final__nota">¿Es una urgencia médica? Llama a la central de ambulancia aérea: <a href="tel:+573125841420">+57 312 584 1420</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__grid">
+      <div class="pie__marca">
+        <img src="assets/logo-pacificfly-blanco.png" alt="PacificFly" width="900" height="197" loading="lazy">
+        <p>Ambulancia aérea, taxi aéreo, vuelos de carga e internacionales y transporte de mercancías peligrosas.</p>
+      </div>
+      <div>
+        <h2>Servicios</h2>
+        <ul>
+          <li><a href="index.html">Ambulancia aérea</a></li>
+          <li><a href="taxi-aereo.html">Taxi aéreo</a></li>
+          <li><a href="mercancias-peligrosas.html">Transporte de mercancías peligrosas</a></li>
+          <li><a href="vuelos-de-carga.html">Vuelos de carga</a></li>
+          <li><a href="vuelos-internacionales.html">Vuelos internacionales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <ul class="pie__contacto">
+          <li><svg class="icono"><use href="#i-tel"/></svg><span><span class="pie__etq">Central de ambulancia aérea 24 h</span><a class="pie__tel" href="tel:+573125841420">+57 312 584 1420</a></span></li>
+          <li><svg class="icono"><use href="#i-tel"/></svg><span><span class="pie__etq">Línea comercial</span><a class="pie__tel" href="tel:+573114099465">+57 311 409 9465</a></span></li>
+          <li><svg class="icono"><use href="#i-correo"/></svg><a href="mailto:info@pacificflycol.com">info@pacificflycol.com</a></li>
+          <li><svg class="icono"><use href="#i-pin"/></svg><span>Hangar 39, Aeropuerto Internacional Alfonso Bonilla Aragón (Cali)</span></li>
+          <li><svg class="icono"><use href="#i-flecha"/></svg><a href="contacto.html">Todos los canales de contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Síguenos</h2>
+        <div class="redes">
+          <a href="#" aria-label="PacificFly en Facebook"><svg class="icono"><use href="#i-fb"/></svg></a>
+          <a href="#" aria-label="PacificFly en Instagram"><svg class="icono"><use href="#i-ig"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="pie__base">
+      <p>© <span id="anio">2026</span> PacificFly. Todos los derechos reservados.</p>
+      <nav class="pie__legal" aria-label="Información legal">
+        <a href="politica-de-datos.html">Política de tratamiento de datos</a>
+        <a href="#">Estados financieros</a>
+      </nav>
+      <a class="subir" href="#inicio" aria-label="Volver arriba"><svg class="icono"><use href="#i-arriba"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="btn btn--llamar" href="tel:+573114099465"><svg class="icono"><use href="#i-tel"/></svg>Llamar</a>
+  <a class="btn btn--wa-claro" href="https://wa.me/573114099465?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener"><svg class="icono"><use href="#i-wa"/></svg>WhatsApp</a>
+</nav>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
