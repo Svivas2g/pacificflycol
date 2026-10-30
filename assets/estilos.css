@@ -179,6 +179,46 @@ select.control{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xm
 .contacto__form h2{font-size:1.45rem}
 .contacto__form .form__aviso{margin-top:14px}
 
+/* Formulario PQRS (página PQRS): reutiliza el formulario de contacto y suma lo propio */
+.pqrs__in{max-width:880px}
+.form__nota{margin-top:16px;font-size:.875rem;color:var(--gris-2)}
+.obligatorio{color:#B0102A;font-weight:700}
+.formulario--dos{grid-template-columns:1fr 1fr;gap:16px 18px}
+.campo--ancho{grid-column:1/-1}
+.formulario--dos .campo{align-content:start}
+.campo__ayuda{font-size:.85rem;line-height:1.45;color:var(--gris-2)}
+.campo__pie{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px}
+.campo__contador{margin-left:auto;font-size:.85rem;color:var(--gris-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.control--amplia{min-height:190px}
+.trampa{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.archivos{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:14px 16px;border:1.5px dashed var(--gris-borde);border-radius:18px;background:var(--fondo)}
+.archivos__input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.archivos__boton{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--azul);background:#fff;color:var(--azul);font-size:.9375rem;font-weight:600;cursor:pointer}
+.archivos__boton:hover{background:var(--gris-50)}
+.archivos__input:focus-visible+.archivos__boton{outline:none;box-shadow:0 0 0 4px rgba(15,66,137,.25)}
+.archivos__input[aria-invalid="true"]+.archivos__boton{border-color:var(--rojo)}
+.archivos .campo__ayuda{flex:1 1 260px}
+.archivos__lista{display:grid;gap:8px}
+.archivos__lista li{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--gris-linea);background:#fff;font-size:.9rem}
+.archivos__nombre{flex:1;min-width:0;color:var(--navy);font-weight:500;overflow-wrap:anywhere}
+.archivos__peso{flex:none;color:var(--gris-2);font-variant-numeric:tabular-nums}
+.archivos__quitar{flex:none;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--gris-linea);background:#fff;color:#B0102A;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.archivos__quitar:hover{background:var(--rojo-tinte)}
+.archivos__quitar:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(15,66,137,.25)}
+.pqrs__datos{padding:14px 16px;border-radius:14px;background:var(--fondo);border:1px solid var(--gris-linea);font-size:.85rem;line-height:1.5}
+.pqrs__datos summary{color:var(--azul);font-weight:600;cursor:pointer}
+.pqrs__datos dl{margin:10px 0 0}
+.pqrs__datos dl div{padding:8px 0;border-top:1px solid var(--gris-linea)}
+.pqrs__datos dt{color:var(--navy);font-weight:600}
+.pqrs__datos dd{margin:2px 0 0;overflow-wrap:anywhere}
+.pqrs__datos a{color:var(--azul);font-weight:600}
+.pqrs-ok p+p{margin-top:8px}
+.pqrs-ok__titulo{font-weight:600;font-size:1.05rem}
+.pqrs-radicado{display:inline-block;padding:2px 10px;border-radius:8px;background:#fff;border:1px solid #9FD6B9;color:#0B5E35;font-size:1.15rem;letter-spacing:.02em;user-select:all;-webkit-user-select:all}
+.pqrs-copiar{margin-left:6px;color:#0B5E35;font-size:.9rem}
+.pqrs-ok__nota{font-size:.875rem}
+@media (max-width:760px){.formulario--dos{grid-template-columns:1fr}}
+
 /* Política de tratamiento de datos */
 .legal__in{display:grid;grid-template-columns:260px 1fr;gap:64px;align-items:start}
 .legal__indice{position:sticky;top:120px;padding:22px 20px;border-radius:18px;background:var(--fondo);border:1px solid var(--gris-linea)}

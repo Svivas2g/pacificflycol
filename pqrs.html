@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M5Q6JZFH');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PQRS: peticiones, quejas y reclamos | PacificFly</title>
+<meta name="description" content="Presenta en línea tus peticiones, quejas, reclamos o sugerencias a PacificFly y recibe un número de radicado para hacer seguimiento a tu solicitud.">
+<meta name="theme-color" content="#0F4289">
+<!-- SITIO, versión 7 (5 de octubre de 2026). Generado con _fuente/generar.py: no editar este archivo, editar _fuente/. -->
+<link rel="stylesheet" href="assets/estilos.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5Q6JZFH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script src="assets/iconos.js"></script>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<div class="barra-urgencia" role="region" aria-label="Línea de ambulancias aéreas">
+  <div class="contenedor barra-urgencia__in">
+    <p><span class="largo">Nuestra línea para ambulancias aéreas está disponible las 24 horas del día: </span><span class="corto">Ambulancias aéreas 24 h: </span><a href="tel:+573125841420">+57 312 584 1420</a></p>
+  </div>
+</div>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__in">
+    <a class="logo" href="index.html" aria-label="PacificFly, inicio"><img src="assets/logo-pacificfly.png" alt="PacificFly" width="900" height="197"></a>
+    <nav class="nav" aria-label="Principal">
+      <div class="nav__grupo">
+        <button class="nav__servicios" type="button" aria-expanded="false" aria-controls="menu-servicios">Servicios<svg class="icono"><use href="#i-abajo"/></svg></button>
+        <ul class="nav__desplegable" id="menu-servicios" hidden>
+          <li><a href="index.html">Ambulancia aérea</a></li>
+          <li><a href="taxi-aereo.html">Taxi aéreo</a></li>
+          <li><a href="mercancias-peligrosas.html">Mercancías peligrosas</a></li>
+          <li><a href="vuelos-de-carga.html">Vuelos de carga</a></li>
+          <li><a href="vuelos-internacionales.html">Vuelos internacionales</a></li>
+        </ul>
+      </div>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="pqrs.html" aria-current="page">PQRS</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><svg class="icono"><use href="#i-menu"/></svg></button>
+  </div>
+  <div id="menu-movil" class="menu-movil" hidden>
+    <nav class="contenedor" aria-label="Menú">
+      <p class="menu-movil__titulo">Servicios</p>
+      <a href="index.html">Ambulancia aérea</a>
+      <a href="taxi-aereo.html">Taxi aéreo</a>
+      <a href="mercancias-peligrosas.html">Mercancías peligrosas</a>
+      <a href="vuelos-de-carga.html">Vuelos de carga</a>
+      <a href="vuelos-internacionales.html">Vuelos internacionales</a>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="pqrs.html" aria-current="page">PQRS</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="hero hero--servicio hero--corto oscuro" id="inicio" aria-labelledby="titulo-pqrs">
+    <div class="hero__fondo" aria-hidden="true"></div>
+    <div class="contenedor">
+      <div class="hero__texto">
+        <p class="chip-vivo">Atención al cliente</p>
+        <h1 id="titulo-pqrs">Peticiones, Quejas y Reclamos (PQRS)</h1>
+        <p class="hero__lead">En PacificFly estamos comprometidos con la calidad de nuestros servicios y la satisfacción de nuestros clientes. A través de este formulario puedes presentar tus peticiones, quejas o reclamos. Tu solicitud será recibida y gestionada conforme a la normativa colombiana vigente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion pqrs" aria-label="Formulario de PQRS">
+    <div class="contenedor pqrs__in">
+      <div class="contacto__form">
+        <h2 id="pqrs-titulo">Radica tu solicitud</h2>
+        <p class="form__aviso"><svg class="icono"><use href="#i-rayo"/></svg><span>Si es una urgencia médica, no uses el formulario: <a href="tel:+573125841420">llama a la central, +57 312 584 1420</a>.</span></p>
+        <form id="form-pqrs" method="POST" data-api="https://api-erp-omnia.apps2group.com/api/v1/publico/pacif/pqrs" novalidate aria-labelledby="pqrs-titulo">
+          <input type="hidden" name="politica_version" value="2026-10">
+          <input type="hidden" name="tiempo_llenado" value="">
+          <input type="text" name="sitio_web" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form__nota">Los campos con <span class="obligatorio">*</span> son obligatorios.</p>
+          <div class="formulario formulario--dos">
+              <div class="campo">
+                <label for="p-tipo">Tipo de solicitud <span class="obligatorio" aria-hidden="true">*</span></label>
+                <select class="control" id="p-tipo" name="tipo" aria-required="true" aria-describedby="p-tipo-error"><option value="" selected disabled>Escoge el tipo</option><option value="peticion">Petición</option><option value="queja">Queja</option><option value="reclamo">Reclamo</option><option value="sugerencia">Sugerencia</option></select>
+                <p class="error" id="p-tipo-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-servicio">Servicio relacionado <span class="obligatorio" aria-hidden="true">*</span></label>
+                <select class="control" id="p-servicio" name="servicio" aria-required="true" aria-describedby="p-servicio-error"><option value="" selected disabled>Escoge el servicio</option><option value="ambulancia_aerea">Ambulancia aérea</option><option value="taxi_aereo">Taxi aéreo</option><option value="vuelo_charter">Vuelo chárter</option><option value="vuelos_carga">Vuelos de carga</option><option value="mercancias_peligrosas">Mercancías peligrosas</option><option value="vuelos_internacionales">Vuelos internacionales</option><option value="atencion_comercial">Atención comercial</option><option value="facturacion">Facturación</option><option value="servicio_cliente">Servicio al cliente</option><option value="otro">Otro</option></select>
+                <p class="error" id="p-servicio-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo campo--ancho">
+                <label for="p-nombre">Nombre completo <span class="obligatorio" aria-hidden="true">*</span></label>
+                <input class="control" id="p-nombre" name="nombre" maxlength="150" autocomplete="name" aria-required="true" aria-describedby="p-nombre-error">
+                <p class="error" id="p-nombre-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-tipo-documento">Tipo de documento <span class="opcional">(opcional)</span></label>
+                <select class="control" id="p-tipo-documento" name="tipo_documento" aria-describedby="p-tipo-documento-error"><option value="" selected>Selecciona</option><option value="CC">Cédula de ciudadanía</option><option value="CE">Cédula de extranjería</option><option value="PA">Pasaporte</option><option value="NIT">NIT</option><option value="TI">Tarjeta de identidad</option><option value="PPT">Permiso por protección temporal</option></select>
+                <p class="error" id="p-tipo-documento-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-numero-documento">Número de documento <span class="opcional">(opcional)</span></label>
+                <input class="control" id="p-numero-documento" name="numero_documento" maxlength="30" autocomplete="off" aria-describedby="p-numero-documento-error">
+                <p class="error" id="p-numero-documento-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-email">Correo electrónico <span class="obligatorio" aria-hidden="true">*</span></label>
+                <input class="control" id="p-email" name="email" type="email" maxlength="150" autocomplete="email" aria-required="true" aria-describedby="p-email-ayuda p-email-error">
+                <p class="campo__ayuda" id="p-email-ayuda">Aquí te enviaremos la respuesta</p>
+                <p class="error" id="p-email-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-telefono">Teléfono de contacto <span class="obligatorio" aria-hidden="true">*</span></label>
+                <input class="control" id="p-telefono" name="telefono" type="tel" inputmode="tel" maxlength="30" autocomplete="tel" aria-required="true" aria-describedby="p-telefono-error">
+                <p class="error" id="p-telefono-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-ciudad">Ciudad <span class="opcional">(opcional)</span></label>
+                <input class="control" id="p-ciudad" name="ciudad" maxlength="80" autocomplete="address-level2" aria-describedby="p-ciudad-error">
+                <p class="error" id="p-ciudad-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo">
+                <label for="p-pais">País <span class="opcional">(opcional)</span></label>
+                <input class="control" id="p-pais" name="pais" maxlength="80" value="" autocomplete="country-name" aria-describedby="p-pais-error">
+                <p class="error" id="p-pais-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo campo--ancho">
+                <label for="p-asunto">Asunto <span class="obligatorio" aria-hidden="true">*</span></label>
+                <input class="control" id="p-asunto" name="asunto" maxlength="150" autocomplete="off" aria-required="true" aria-describedby="p-asunto-error">
+                <p class="error" id="p-asunto-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo campo--ancho">
+                <label for="p-descripcion">Descripción de la solicitud <span class="obligatorio" aria-hidden="true">*</span></label>
+                <textarea class="control control--area control--amplia" id="p-descripcion" name="descripcion" rows="8" minlength="20" maxlength="5000" aria-required="true" aria-describedby="p-descripcion-ayuda p-descripcion-contador p-descripcion-error"></textarea>
+                <div class="campo__pie">
+                  <p class="campo__ayuda" id="p-descripcion-ayuda">Cuéntanos qué pasó, cuándo, tu inconformidad o petición y qué solicitas a PacificFly.</p>
+                  <p class="campo__contador" id="p-descripcion-contador">0 de 5.000 caracteres</p>
+                </div>
+                <p class="error" id="p-descripcion-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="campo campo--ancho">
+                <label for="p-adjuntos">Archivos adjuntos <span class="opcional">(opcional)</span></label>
+                <div class="archivos">
+                  <input class="archivos__input" id="p-adjuntos" name="adjuntos[]" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.docx,.xlsx" aria-describedby="p-adjuntos-ayuda p-adjuntos-error">
+                  <label class="archivos__boton" for="p-adjuntos"><svg class="icono"><use href="#i-documento"/></svg>Elegir archivos</label>
+                  <p class="campo__ayuda" id="p-adjuntos-ayuda">Hasta 5 archivos PDF, JPG, PNG, Word (.docx) o Excel (.xlsx), de máximo 5 MB cada uno y 10 MB en total.</p>
+                </div>
+                <ul class="archivos__lista" id="p-adjuntos-lista" aria-label="Archivos elegidos" hidden></ul>
+                <p class="error" id="p-adjuntos-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+              </div>
+              <div class="consentimiento campo--ancho">
+                <input type="checkbox" id="p-autorizacion" name="autorizacion_datos" value="1" aria-required="true" aria-describedby="p-autorizacion-error">
+                <div>
+                  <label for="p-autorizacion">Autorizo a PacificFly a tratar mis datos personales para radicar, gestionar y responder esta solicitud, conforme a la Ley 1581 de 2012 y a la <a href="politica-de-datos.html" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>. <span class="obligatorio" aria-hidden="true">*</span></label>
+                  <p class="error" id="p-autorizacion-error" hidden><svg class="icono"><use href="#i-alerta"/></svg><span></span></p>
+                </div>
+              </div>
+              <details class="pqrs__datos campo--ancho">
+                <summary>Cómo tratamos tus datos personales</summary>
+                <dl>
+                  <div><dt>Responsable</dt><dd>PACIFIC FLY-AMBULANCIAS AÉREAS S.A.S., NIT 900754680-9. Domicilio: CL 9 # 40-51, Cali, Valle del Cauca, Colombia. Teléfono: <a href="tel:+573028185624">302 818 5624</a>. Correo: <a href="mailto:shanomalternative@gmail.com">shanomalternative@gmail.com</a>.</dd></div>
+                  <div><dt>Finalidad</dt><dd>Usamos tus datos solo para radicar, gestionar y responder esta solicitud, y para conservar su registro. No los usamos para publicidad.</dd></div>
+                  <div><dt>Tus derechos</dt><dd>Puedes conocer, actualizar, rectificar y suprimir tus datos, y revocar esta autorización.</dd></div>
+                  <div><dt>Cómo ejercerlos</dt><dd>Por correo a <a href="mailto:shanomalternative@gmail.com">shanomalternative@gmail.com</a>, por escrito en CL 9 # 40-51, Cali, Valle del Cauca, o al teléfono <a href="tel:+573028185624">302 818 5624</a>. Más detalles en la <a href="politica-de-datos.html" target="_blank" rel="noopener">Política de Tratamiento de Datos Personales</a>.</dd></div>
+                </dl>
+              </details>
+              <div class="form__pie campo--ancho">
+                <button class="btn btn--llamar" type="submit"><span>Enviar solicitud</span><svg class="icono"><use href="#i-flecha"/></svg></button>
+                <p>Al enviarla recibirás un número de radicado.</p>
+              </div>
+          </div>
+        </form>
+        <div class="contacto-resultado contacto-resultado--ok pqrs-ok" id="pqrs-ok" role="status" tabindex="-1" hidden>
+          <p class="pqrs-ok__titulo">Tu solicitud ha sido recibida exitosamente por PacificFly.</p>
+          <p class="pqrs-ok__radicado">Número de radicado: <strong class="pqrs-radicado" id="pqrs-radicado"></strong> <button class="enlace pqrs-copiar" id="pqrs-copiar" type="button" hidden>Copiar</button></p>
+          <p>Nuestro equipo revisará tu solicitud y dará respuesta dentro de los términos establecidos por la normativa colombiana vigente.</p>
+          <p>Gracias por contactarnos.</p>
+          <p class="pqrs-ok__nota">Te enviamos una copia con el radicado al correo que registraste.</p>
+          <p class="pqrs-ok__nota" id="pqrs-recibido" hidden>Fecha de recepción: <span id="pqrs-recibido-texto"></span></p>
+        </div>
+        <p class="contacto-resultado contacto-resultado--error" id="pqrs-error" role="alert" tabindex="-1" hidden>No pudimos radicar tu solicitud y no quedó registrada. Tus datos siguen en el formulario: intenta de nuevo en unos minutos o llama a la línea comercial, <a href="tel:+573114099465">+57 311 409 9465</a>.</p>
+        <p class="contacto-resultado contacto-resultado--error" id="pqrs-limite" role="alert" tabindex="-1" hidden>Recibimos varias solicitudes desde tu conexión en poco tiempo. Espera unos minutos e intenta de nuevo.</p>
+        <p class="contacto-resultado contacto-resultado--error" id="pqrs-revisar" role="alert" tabindex="-1" hidden></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__grid">
+      <div class="pie__marca">
+        <img src="assets/logo-pacificfly-blanco.png" alt="PacificFly" width="900" height="197" loading="lazy">
+        <p>Ambulancia aérea, taxi aéreo, vuelos de carga e internacionales y transporte de mercancías peligrosas.</p>
+      </div>
+      <div>
+        <h2>Servicios</h2>
+        <ul>
+          <li><a href="index.html">Ambulancia aérea</a></li>
+          <li><a href="taxi-aereo.html">Taxi aéreo</a></li>
+          <li><a href="mercancias-peligrosas.html">Transporte de mercancías peligrosas</a></li>
+          <li><a href="vuelos-de-carga.html">Vuelos de carga</a></li>
+          <li><a href="vuelos-internacionales.html">Vuelos internacionales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <ul class="pie__contacto">
+          <li><svg class="icono"><use href="#i-tel"/></svg><span><span class="pie__etq">Central de ambulancia aérea 24 h</span><a class="pie__tel" href="tel:+573125841420">+57 312 584 1420</a></span></li>
+          <li><svg class="icono"><use href="#i-tel"/></svg><span><span class="pie__etq">Línea comercial</span><a class="pie__tel" href="tel:+573114099465">+57 311 409 9465</a></span></li>
+          <li><svg class="icono"><use href="#i-correo"/></svg><a href="mailto:info@pacificflycol.com">info@pacificflycol.com</a></li>
+          <li><svg class="icono"><use href="#i-pin"/></svg><span>Hangar 39, Aeropuerto Internacional Alfonso Bonilla Aragón (Cali)</span></li>
+          <li><svg class="icono"><use href="#i-flecha"/></svg><a href="contacto.html">Todos los canales de contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Síguenos</h2>
+        <div class="redes">
+          <a href="#" aria-label="PacificFly en Facebook"><svg class="icono"><use href="#i-fb"/></svg></a>
+          <a href="#" aria-label="PacificFly en Instagram"><svg class="icono"><use href="#i-ig"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="pie__base">
+      <p>© <span id="anio">2026</span> PacificFly. Todos los derechos reservados.</p>
+      <nav class="pie__legal" aria-label="Información legal">
+        <a href="politica-de-datos.html">Política de tratamiento de datos</a>
+        <a href="pqrs.html">PQRS</a>
+        <a href="#">Estados financieros</a>
+      </nav>
+      <a class="subir" href="#inicio" aria-label="Volver arriba"><svg class="icono"><use href="#i-arriba"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<nav class="barra-movil" aria-label="Contacto rápido">
+  <a class="btn btn--llamar" href="tel:+573114099465"><svg class="icono"><use href="#i-tel"/></svg>Llamar</a>
+  <a class="btn btn--wa-claro" href="https://wa.me/573114099465?text=Hola%2C%20tengo%20una%20consulta%20sobre%20una%20PQRS." target="_blank" rel="noopener"><svg class="icono"><use href="#i-wa"/></svg>WhatsApp</a>
+</nav>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
