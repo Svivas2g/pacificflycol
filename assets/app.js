@@ -526,6 +526,34 @@
         const radicado = j && j.success === true && j.data && typeof j.data.radicado === 'string' ? j.data.radicado.trim() : '';
         if (r.status === 201 && radicado) {
           $('#pqrs-radicado').textContent = radicado;
+          // Enviar copia de la PQRS a Gerencia mediante FormSubmit
+        try {
+          const correo = new FormData();
+        
+          correo.append('_subject', `Nueva PQRS PacificFly - ${radicado}`);
+          correo.append('_template', 'table');
+          correo.append('Número de radicado', radicado);
+        
+          for (const [clave, valor] of datos.entries()) {
+            if (clave !== 'adjuntos[]') {
+              correo.append(clave, valor);
+            }
+          }
+        
+          const respuestaCorreo = await fetch(formPqrs.dataset.correo, {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json'
+            },
+            body: correo
+          });
+        
+          if (!respuestaCorreo.ok) {
+            console.error('No se pudo enviar la notificación a Gerencia.');
+          }
+        } catch (errorCorreo) {
+          console.error('Error enviando la copia a Gerencia:', errorCorreo);
+        }
           const recibido = j.data.recibido_texto;
           if (typeof recibido === 'string' && recibido.trim()) {
             $('#pqrs-recibido-texto').textContent = recibido.trim();
