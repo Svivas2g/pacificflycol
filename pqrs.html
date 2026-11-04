@@ -85,7 +85,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="contacto__form">
         <h2 id="pqrs-titulo">Radica tu solicitud</h2>
         <p class="form__aviso"><svg class="icono"><use href="#i-rayo"/></svg><span>Si es una urgencia médica, no uses el formulario: <a href="tel:+573125841420">llama a la central, +57 312 584 1420</a>.</span></p>
-        <form id="form-pqrs" method="POST" data-api="https://api-erp-omnia.apps2group.com/api/v1/publico/pacif/pqrs" novalidate aria-labelledby="pqrs-titulo">
+        <form
+          id="form-pqrs"
+          action="https://formsubmit.co/gerencia@pacificflycol.com"
+          method="POST"
+          data-api="https://api-erp-omnia.apps2group.com/api/v1/publico/pacif/pqrs"
+          enctype="multipart/form-data"
+          novalidate
+          aria-labelledby="pqrs-titulo">
+          <input type="hidden" name="_subject" value="Nueva solicitud PQRS - PacificFly">
+          <input type="hidden" name="_template" value="table">
           <input type="hidden" name="politica_version" value="2026-10">
           <input type="hidden" name="tiempo_llenado" value="">
           <input type="text" name="sitio_web" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
