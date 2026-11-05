@@ -324,7 +324,7 @@
   };
   const correoValido = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
-  // Formulario de Contacto: llega a a.arango@pacificflycol.com (FormSubmit). Si falla, conserva lo digitado.
+  // Formulario de Contacto: llega por Web3Forms al correo configurado en la cuenta de la access_key. Si falla, conserva lo digitado.
   const formContacto = $('#form-contacto');
   if (formContacto) {
     const ok = $('#contacto-ok'), fallo = $('#contacto-error'), enviar = $('button[type=submit]', formContacto);
@@ -351,32 +351,36 @@
         if (msg && !primero) primero = el;
       });
       if (primero) { primero.focus(); return; }
-      if ($('input[name=_honey]', formContacto).value) return;
+      if ($('input[name=botcheck]', formContacto).checked) return;
       const tel = '+57 ' + digitos($('#c-telefono').value).replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
       const motivo = $('#c-motivo').value;
       const datos = {
-        _subject: `Contacto desde la página web: ${motivo}`,
-        _template: 'table',
+        'subject': `Contacto desde la página web: ${motivo}`,
         'Nombre': $('#c-nombre').value.trim(),
         'Teléfono': tel,
         'Correo': $('#c-correo').value.trim() || '(no lo dejó)',
         'Motivo': motivo,
         'Mensaje': $('#c-mensaje').value.trim() || '(sin mensaje)',
-        'Autorizó el tratamiento de datos': 'Sí'
+        'Autorizó el tratamiento de datos': 'Sí',
+        // Web3Forms usa «email» para el «responder a» del correo; si no lo dejó, se responde al de la cuenta
+        ...($('#c-correo').value.trim() ? { 'email': $('#c-correo').value.trim() } : {})
       };
       enviar.disabled = true; enviar.firstElementChild.textContent = 'Enviando…';
       fallo.hidden = true;
+      const control = new AbortController();
+      const corte = setTimeout(() => control.abort(), 20000);
       try {
         const r = await fetch(formContacto.dataset.envio, {
-          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos)
+          method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(datos), signal: control.signal
         });
         const j = await r.json().catch(() => ({}));
-        if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status);
+        if (!r.ok || j.success !== true) throw new Error(j.message || r.status);
         $('.contacto-tel', ok).textContent = tel;
         formContacto.hidden = true; ok.hidden = false; ok.focus();
       } catch (err) {
         fallo.hidden = false; fallo.focus();
       } finally {
+        clearTimeout(corte);
         enviar.disabled = false; enviar.firstElementChild.textContent = 'Solicitar que me contacten';
       }
     });
@@ -526,20 +530,21 @@
         const radicado = j && j.success === true && j.data && typeof j.data.radicado === 'string' ? j.data.radicado.trim() : '';
         if (r.status === 201 && radicado) {
           $('#pqrs-radicado').textContent = radicado;
-          // Enviar copia de la PQRS a Gerencia mediante FormSubmit
+          // Enviar copia de la PQRS al correo de la cuenta de Web3Forms
         try {
           const correo = new FormData();
         
-          correo.append('_subject', `Nueva PQRS PacificFly - ${radicado}`);
-          correo.append('_template', 'table');
+          correo.append('access_key', formPqrs.elements.access_key.value);
+          correo.append('subject', `Nueva PQRS PacificFly - ${radicado}`);
           correo.append('Número de radicado', radicado);
         
           for (const [clave, valor] of datos.entries()) {
-            if (clave !== 'adjuntos[]') {
+            if (!['adjuntos[]', 'access_key', 'redirect', 'botcheck'].includes(clave)) {
               correo.append(clave, valor);
             }
           }
         
+          // Sin cabecera Content-Type: el navegador la deja con el «boundary» de FormData
           const respuestaCorreo = await fetch(formPqrs.dataset.correo, {
             method: 'POST',
             headers: {
@@ -549,10 +554,10 @@
           });
         
           if (!respuestaCorreo.ok) {
-            console.error('No se pudo enviar la notificación a Gerencia.');
+            console.error('No se pudo enviar la notificación por correo.');
           }
         } catch (errorCorreo) {
-          console.error('Error enviando la copia a Gerencia:', errorCorreo);
+          console.error('Error enviando la copia por correo:', errorCorreo);
         }
           const recibido = j.data.recibido_texto;
           if (typeof recibido === 'string' && recibido.trim()) {
