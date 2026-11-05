@@ -386,12 +386,12 @@
     });
   }
 
-  // Formulario PQRS: se radica en el ERP (data-api) con FormData, sin cookies. El éxito solo se muestra
-  // con un 201 que traiga radicado; cualquier otra respuesta deja el formulario con lo digitado.
+  // Formulario PQRS: envía directo por Web3Forms al correo de la cuenta de la access_key (Gerencia).
+  // Al enviarse con éxito, la página muestra el radicado que confirma Web3Forms.
   const formPqrs = $('#form-pqrs');
   if (formPqrs) {
     const cargada = performance.now(); // para tiempo_llenado: ms desde que cargó la página, sin depender del reloj del equipo
-    const ok = $('#pqrs-ok'), fallo = $('#pqrs-error'), limite = $('#pqrs-limite'), revisarAviso = $('#pqrs-revisar');
+    const ok = $('#pqrs-ok'), fallo = $('#pqrs-error'), revisarAviso = $('#pqrs-revisar');
     const enviar = $('button[type=submit]', formPqrs), rotulo = enviar.firstElementChild.textContent;
     const inputArchivos = $('#p-adjuntos'), lista = $('#p-adjuntos-lista');
     const descripcion = $('#p-descripcion'), contador = $('#p-descripcion-contador');
@@ -478,31 +478,8 @@
     formPqrs.addEventListener('input', revisar);
     formPqrs.addEventListener('change', revisar);
 
-    const ocultarAvisos = () => { [fallo, limite, revisarAviso].forEach(a => { a.hidden = true; }); };
+    const ocultarAvisos = () => { [fallo, revisarAviso].forEach(a => { a.hidden = true; }); };
     const mostrar = (aviso) => { aviso.hidden = false; aviso.focus(); };
-
-    // 422: cada mensaje junto a su campo (adjuntos.0, adjuntos.1… van al campo de adjuntos)
-    const pintarErroresServidor = (errores) => {
-      const porCampo = new Map(), sueltos = [];
-      Object.entries(errores).forEach(([clave, msgs]) => {
-        const texto = [].concat(msgs).filter(m => typeof m === 'string').join(' ');
-        if (!texto) return;
-        const base = clave.split('.')[0].replace(/\[\]$/, '');
-        const el = base === 'adjuntos' ? inputArchivos : formPqrs.elements[base];
-        if (el && el.id && document.getElementById(el.id + '-error')) {
-          porCampo.set(el, [porCampo.get(el), texto].filter(Boolean).join(' '));
-        } else sueltos.push(texto);
-      });
-      porCampo.forEach((texto, el) => marcarCampo(el, texto));
-      const orden = Object.keys(reglas).map(id => document.getElementById(id)).filter(el => porCampo.has(el));
-      if (sueltos.length) {
-        revisarAviso.textContent = `No pudimos radicar tu solicitud: ${sueltos.join(' ')}`;
-        revisarAviso.hidden = false;
-      }
-      if (orden.length) orden[0].focus();
-      else if (sueltos.length) revisarAviso.focus();
-      else mostrar(fallo);
-    };
 
     formPqrs.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -515,70 +492,43 @@
       });
       if (primero) { primero.focus(); return; }
 
+      // Radicado propio con el que la persona y Gerencia identifican la solicitud: PQRS-AAAAMMDD-HHMMSS-XXXX
+      const ahora = new Date(), dos = (n) => String(n).padStart(2, '0');
+      const sufijo = Array.from(crypto.getRandomValues(new Uint8Array(2))).map(b => dos(b)).join('');
+      const radicado = `PQRS-${ahora.getFullYear()}${dos(ahora.getMonth() + 1)}${dos(ahora.getDate())}-${dos(ahora.getHours())}${dos(ahora.getMinutes())}${dos(ahora.getSeconds())}-${sufijo}`;
+      const fecha = ahora.toLocaleString('es-CO', { dateStyle: 'long', timeStyle: 'short' });
+      formPqrs.elements.radicado.value = radicado;
       formPqrs.elements.tiempo_llenado.value = String(Math.round(performance.now() - cargada));
+
       const datos = new FormData(formPqrs);
+      datos.set('subject', `${formPqrs.elements.subject.value}: ${radicado}`);
+      datos.set('fecha_envio', fecha);
       datos.delete('adjuntos[]');
       archivos.forEach(f => datos.append('adjuntos[]', f, f.name));
 
       enviar.disabled = true; enviar.firstElementChild.textContent = 'Enviando…';
+      const control = new AbortController();
+      const corte = setTimeout(() => control.abort(), 20000);
       try {
+        // Sin cabecera Content-Type: el navegador la deja con el «boundary» de FormData
         let r;
         try {
-          r = await fetch(formPqrs.dataset.api, { method: 'POST', body: datos, headers: { Accept: 'application/json' } });
+          r = await fetch(formPqrs.dataset.envio, { method: 'POST', body: datos, headers: { Accept: 'application/json' }, signal: control.signal });
         } catch (err) { mostrar(fallo); return; }
         const j = await r.json().catch(() => null);
-        const radicado = j && j.success === true && j.data && typeof j.data.radicado === 'string' ? j.data.radicado.trim() : '';
-        if (r.status === 201 && radicado) {
-          $('#pqrs-radicado').textContent = radicado;
-          // Enviar copia de la PQRS al correo de la cuenta de Web3Forms
-        try {
-          const correo = new FormData();
-        
-          correo.append('access_key', formPqrs.elements.access_key.value);
-          correo.append('subject', `Nueva PQRS PacificFly - ${radicado}`);
-          correo.append('Número de radicado', radicado);
-        
-          for (const [clave, valor] of datos.entries()) {
-            if (!['adjuntos[]', 'access_key', 'redirect', 'botcheck'].includes(clave)) {
-              correo.append(clave, valor);
-            }
-          }
-        
-          // Sin cabecera Content-Type: el navegador la deja con el «boundary» de FormData
-          const respuestaCorreo = await fetch(formPqrs.dataset.correo, {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json'
-            },
-            body: correo
-          });
-        
-          if (!respuestaCorreo.ok) {
-            console.error('No se pudo enviar la notificación por correo.');
-          }
-        } catch (errorCorreo) {
-          console.error('Error enviando la copia por correo:', errorCorreo);
+        if (!r.ok || !j || j.success !== true) { mostrar(fallo); return; }
+        $('#pqrs-radicado').textContent = radicado;
+        $('#pqrs-recibido-texto').textContent = fecha;
+        $('#pqrs-recibido').hidden = false;
+        const copiar = $('#pqrs-copiar');
+        if (navigator.clipboard && window.isSecureContext) {
+          copiar.hidden = false;
+          copiar.onclick = () => navigator.clipboard.writeText(radicado).then(() => { copiar.textContent = 'Copiado'; }, () => {});
         }
-          const recibido = j.data.recibido_texto;
-          if (typeof recibido === 'string' && recibido.trim()) {
-            $('#pqrs-recibido-texto').textContent = recibido.trim();
-            $('#pqrs-recibido').hidden = false;
-          }
-          const copiar = $('#pqrs-copiar');
-          if (navigator.clipboard && window.isSecureContext) {
-            copiar.hidden = false;
-            copiar.onclick = () => navigator.clipboard.writeText(radicado).then(() => { copiar.textContent = 'Copiado'; }, () => {});
-          }
-          formPqrs.hidden = true; ok.hidden = false; ok.focus();
-          ok.scrollIntoView({ block: 'center', behavior: reducir ? 'auto' : 'smooth' });
-        } else if (r.status === 422 && j && j.errors && typeof j.errors === 'object') {
-          pintarErroresServidor(j.errors);
-        } else if (r.status === 429) {
-          mostrar(limite);
-        } else {
-          mostrar(fallo);
-        }
+        formPqrs.hidden = true; ok.hidden = false; ok.focus();
+        ok.scrollIntoView({ block: 'center', behavior: reducir ? 'auto' : 'smooth' });
       } finally {
+        clearTimeout(corte);
         enviar.disabled = false; enviar.firstElementChild.textContent = rotulo;
       }
     });
